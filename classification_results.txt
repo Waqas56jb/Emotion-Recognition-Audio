@@ -1,0 +1,2 @@
+Aggregated Average Accuracy: 0.1566265060240964
+Aggregated Average Weighted F1 Score: 0.15259849586820784
