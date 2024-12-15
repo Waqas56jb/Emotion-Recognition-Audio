@@ -1,96 +1,113 @@
-Here’s a sample README file for project:
+# 🎭 **Emotion Recognition from Speech**
 
-Voice Emotion Recognition Project
-This project uses speech features such as pitch and intensity to recognize emotions in speech, leveraging machine learning techniques. It processes audio files, extracts relevant features, normalizes them, performs emotion classification using a Random Forest Classifier, and evaluates the performance using metrics like accuracy and F1 score.
+Welcome to **Homework 3: Emotion Recognition**, where we explore the fascinating intersection of audio processing and machine learning to detect emotions from speech signals. This project focuses on extracting meaningful audio-based features, training a classification model, and performing error analysis to understand and improve the results.
 
-Table of Contents
-Libraries and Prerequisites
-File Structure
-Setup Instructions
-Features Extraction
-Model Training and Evaluation
-Visualization
-Results
-Libraries and Prerequisites
-Before running the project, ensure you have the following Python libraries installed:
+---
 
-Required Libraries
-parselmouth: A Python interface to the Praat library for speech processing.
-numpy: Used for numerical computations.
-pandas: For handling and processing data.
-sklearn: For machine learning algorithms (Random Forest) and preprocessing (StandardScaler).
-matplotlib: For plotting visualizations.
-seaborn: For creating enhanced data visualizations.
-Installation
-Install the required libraries using pip:
+## 🚀 **Project Overview**
 
-bash
-Copy code
-pip install parselmouth numpy pandas scikit-learn matplotlib seaborn
-Additional Software
-Praat: The project uses Praat's functionality via the parselmouth library to extract pitch and intensity features from the audio files. Ensure you have the Praat software installed on your system.
-File Structure
-The file structure is as follows:
+Speech Emotion Recognition (SER) is the process of identifying emotions from speech using computational models. Emotional states like *anger, sadness, joy,* and *anxiety* influence acoustic features of speech, such as pitch and intensity. This project breaks down the workflow into three key phases:
 
-bash
-Copy code
-/project_root
-├── /hw3_speech_files
-│ ├── audio_files.wav # Audio files for feature extraction
-├── /visualization
-│ ├── feature_plot.png # Saved feature plots
-├── normalized_features.csv # Processed and normalized features
-├── classification_results.txt # Saved results of classification
-├── Feature.ipynb and Classification.ipynb # Main script for feature extraction and classification
-└── README.md # This README file
-Setup Instructions
-Download the Speech Files:
+1. **Feature Extraction**: Extract audio-based features like pitch and intensity using the `parselmouth` library (Praat interface).
+2. **Model Training**: Train a **Support Vector Machine (SVM)** for emotion classification using extracted features.
+3. **Error Analysis**: Analyze model performance using confusion matrices, precision-recall metrics, and class-specific errors.
 
-Make sure the audio files you wish to use for the project are placed in the hw3_speech_files directory.
-Create the Visualization Directory:
+---
 
-The project will automatically create a directory named visualization to store the feature plots.
-Run the Project:
+## 🎯 **Objectives**
 
-Execute the Feature.ipynb script to process the audio files, extract features, normalize them, and train the Random Forest Classifier.
-bash
-Copy code
-Features.ipynb Extraction features
-The project extracts the following features from each audio file:
+- Extract meaningful acoustic features (pitch, intensity) from audio files.
+- Train a machine learning model to classify emotions accurately.
+- Evaluate and analyze errors to suggest improvements for future work.
 
-Pitch:
-Minimum pitch
-Maximum pitch
-Mean pitch
-Intensity:
-Minimum intensity
-Maximum intensity
-Mean intensity
-The features are extracted using the parselmouth library, which interacts with Praat's pitch and intensity extraction functions.
+---
 
-Model Training and Evaluation
-Normalization
-The extracted features are normalized using Z-score normalization by speaker, ensuring that the model training is not biased by speaker-specific variations in pitch and intensity.
+## 🛠 **Technologies Used**
 
-Classification
-A Random Forest Classifier is used to classify emotions based on the extracted features. The classification experiment is performed using Leave-One-Speaker-Out cross-validation to evaluate the model's performance on unseen speakers.
+| **Tool/Library**     | **Purpose**                                  |
+|-----------------------|---------------------------------------------|
+| Python               | Primary programming language                |
+| Parselmouth (Praat)  | Audio feature extraction (pitch, intensity) |
+| Scikit-learn         | Machine learning and evaluation metrics     |
+| Matplotlib/Seaborn   | Visualization of results and error analysis |
+| Pandas/Numpy         | Data processing and transformation          |
 
-Evaluation Metrics
-The model's performance is evaluated using the following metrics:
+---
 
-Accuracy: The percentage of correct predictions.
-Weighted F1 Score: The F1 score weighted by the number of instances per class.
-Confusion Matrix: Visual representation of classification results.
-Visualization
-The project generates visualizations of the extracted features for each emotion. These visualizations are saved in the visualization directory.
+## 🧩 **Project Workflow**
 
-The following plots are generated:
+1. **Feature Extraction**:
+   - Extract *minimum, maximum, and mean* values for pitch and intensity.
+   - Normalize features using Z-score normalization for better comparability.
 
-Feature Plot: Displays the features (pitch and intensity) for each emotion.
-You can view and modify these plots in the visualization folder.
+2. **Classification**:
+   - Train an **SVM classifier** with Leave-One-Speaker-Out (LOSO) cross-validation.
+   - Evaluate model performance using metrics like accuracy, precision, recall, and F1-score.
 
-Results
-The classification results, including accuracy and weighted F1 score, are saved to a text file (classification_results.txt). The confusion matrix for the best-performing speaker is also displayed.
+3. **Error Analysis**:
+   - Generate a **confusion matrix** to visualize misclassifications.
+   - Identify class-specific issues (e.g., class imbalance, overlapping features).
 
-Conclusion
-This project provides a complete workflow for emotion recognition from speech using machine learning, from feature extraction to model evaluation and visualization. The results can be further analyzed or used for improving emotion recognition systems.
+---
+
+## 📊 **Highlights**
+
+- **Feature Insights**:
+   - *Pitch*: Higher for emotions like *anger* and *happiness*; lower for *sadness* and *fear*.
+   - *Intensity*: Reflects emotional intensity; *anger* has higher intensity compared to *sadness*.
+
+- **Model Performance**:
+   - Average accuracy: **~15-18%** (varies per emotion class).
+   - Stronger performance for distinct emotions (*panic*); weaker for overlapping ones (*anxiety, cold-anger*).
+
+- **Visualizations**:
+   - Feature distributions for each emotion.
+   - Confusion matrix to analyze prediction errors.
+
+---
+
+## 📈 **Future Improvements**
+
+- Use advanced models like **Random Forests** or **Deep Learning** for improved performance.
+- Address class imbalance by augmenting underrepresented classes.
+- Explore additional features like **MFCCs**, **spectral roll-off**, or **formants**.
+
+---
+
+## 🖥 **Getting Started**
+
+### Prerequisites:
+- Python 3.8+
+- Install required libraries using:
+   ```bash
+   pip install parselmouth pandas numpy scikit-learn matplotlib seaborn
+   ```
+
+### Running the Project:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/emotion-recognition.git
+   cd emotion-recognition
+   ```
+2. Place your audio files in the designated folder.
+3. Run the feature extraction and model training script:
+   ```bash
+   python main.py
+   ```
+
+---
+
+## 🎥 **Visual Results**
+
+- **Feature Distributions**: Understanding pitch and intensity variations across emotions.
+- **Confusion Matrix**: Visual breakdown of model predictions vs. true labels.
+
+---
+
+## 💡 **Conclusion**
+
+This project demonstrates the potential of audio-based feature extraction for emotion recognition tasks. While the SVM classifier provides a strong foundation, future exploration with deep learning models can unlock further improvements.
+
+---
+
+<p align="center">⭐ **Feel free to explore, contribute, and enhance the project!** ⭐</p>
